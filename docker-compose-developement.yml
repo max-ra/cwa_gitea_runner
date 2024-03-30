@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  gitea:
+      dns: ${DOCKERDNS}
+      volumes:
+        - /srv/cwa_proxy/devCA/mainfranken-racing.de.DEV.pem:/usr/local/share/ca-certificates/mainfranken.crt 
+      command: bash -c "update-ca-certificates && /usr/bin/entrypoint"      
+
