@@ -16,6 +16,7 @@ services:
     volumes:
       - "./runner:/data"
       - "./config.yaml:/config.yaml"
+      - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       TZ: Europe/Berlin
       # START Dual Setup with nginx proxy 
@@ -32,5 +33,3 @@ services:
       GITEA_RUNNER_REGISTRATION_TOKEN: "${RUNNER_TOKEN}"
       GITEA_RUNNER_NAME: "${RUNNER_NAME}"
       GITEA_RUNNER_LABELS: "${RUNNER_LABELS}"
-    networks:
-      - proxy
