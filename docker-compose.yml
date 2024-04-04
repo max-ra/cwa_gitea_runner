@@ -1,13 +1,5 @@
 version: '3.9'
 
-networks:
-  proxy:
-    name: backbone_proxy
-    external: true
-  database:
-    name: backbone_database
-    external: true
-
 services:
   runner:
     image: gitea/act_runner:0.2.8
