@@ -52,8 +52,7 @@ Thumbs.db
 *.swp
 
 # Docker Container data
-containerdata/
+runner/
 
 # Docker secret files
 .env
-
