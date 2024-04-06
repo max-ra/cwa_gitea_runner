@@ -1,13 +1,5 @@
 version: '3.9'
 
-networks:
-  proxy:
-    name: backbone_proxy
-    external: true
-  database:
-    name: backbone_database
-    external: true
-
 services:
   runner:
     image: gitea/act_runner:0.2.8
@@ -18,19 +10,8 @@ services:
       - "./config.yml:/config.yml"
     environment:
       TZ: Europe/Berlin
-      # START Dual Setup with nginx proxy 
-      VIRTUAL_HOST: ${APPLICATION_FQDN}
-      VIRTUAL_PORT: 3000
-      LETSENCRYPT_HOST: ${APPLICATION_FQDN}
-      LETSENCRYPT_EMAIL: ${LETSENCRYPT_MAIL}
-      # END
-      #USER_UID: 9001 
-      #USER_GID: 9001
-      #USER: git
       CONFIG_FILE: "/config.yml" 
-      GITEA_INSTANCE_URL: https://${GITEA_FQDN}
+      GITEA_INSTANCE_URL: "https://${GITEA_FQDN}"
       GITEA_RUNNER_REGISTRATION_TOKEN: "${RUNNER_TOKEN}"
       GITEA_RUNNER_NAME: "${RUNNER_NAME}"
       GITEA_RUNNER_LABELS: "${RUNNER_LABELS}"
-    networks:
-      - proxy
