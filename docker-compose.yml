@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   runner:
-    image: gitea/act_runner:0.2.9
+    image: gitea/act_runner:0.2.10
     container_name: gitea_runner
     restart: always
     volumes:
