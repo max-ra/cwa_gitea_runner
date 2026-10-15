@@ -1,6 +1,6 @@
 services:
   runner:
-    image: gitea/runner:3.5.0
+    image: gitea/runner:4.1.0
     container_name: gitea_runner
     restart: always
     volumes:
